@@ -1,0 +1,64 @@
+<div class="cbs-sub-body third">
+
+{{#if isAdmin}}
+    <h1> Employees Cab Report</h1>
+{{/if}}
+
+{{#if model}}
+<div class="cbs-scrollable-div dInBlck">
+<table class="content-table">
+        <thead>
+    <tr>
+        <th>TRIP ID</th>
+        {{#unless isDriver}}
+        <th>DRIVER ID</th>
+        <th>DRIVER NAME</th>
+        {{/unless}}
+        {{#unless isUser}}
+        <th>USER ID</th>
+        <th>USER NAME</th>
+        {{/unless}}
+        <th>BOOKED TIME</th>
+        <th>OPERATION TIME</th>
+        <th>PICKUP LOCATION</th>
+        <th>DROP LOCATION</th>
+        <th>STATUS</th>
+    </tr>
+        </thead>
+ <tbody>
+        {{#each model as |history|}}
+    <tr>
+        <td>{{history.tripId}}</td>
+        {{#unless isDriver}}
+        <td>{{history.driverId}}</td>
+        <td>{{history.drivername}}</td>
+        {{/unless}}
+        {{#unless isUser}}
+        <td>{{history.userId}}</td>
+        <td>{{history.username}}</td>
+           {{/unless}}
+        <td>{{history.bookedTime}}</td>
+        <td>{{history.modifiedTime}}</td>
+        <td>{{history.pickupLocation}}</td>
+        <td>{{history.dropLocation}}</td>
+        <td>{{statuslabel history.status}}</td>
+    </tr>
+    {{/each}}
+ </tbody>
+  
+</table>
+
+
+</div>
+
+
+{{else}}
+
+<div class="cbs-notify-img">
+
+ <img src="/CabBookingApplication/assets/ember-builds/assets/images/nodata.png">  
+
+ </div>
+{{/if}}
+</div>
+

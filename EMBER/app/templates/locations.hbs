@@ -1,0 +1,105 @@
+<div class="cbs-sub-body sec dFlex">
+
+<div>
+
+
+<button class="cbs-button mLP65" {{action "toggleLocationList"}}>{{#if showDeactivatedLocations}}DEACTIVATED{{else}}ACTIVATED{{/if}}</button>
+
+
+<div class="cbs-scrollable-div">
+      <table class="content-table">
+  <thead>
+    <tr>
+        <th>NAME</th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      
+        {{#each model as |location|}}
+         
+    {{#if showDeactivatedLocations}}
+
+        {{#if location.isActive }}
+        {{#unless location.isBranch}}
+          <tr>
+            <td>{{location.locationName}}</td>
+            
+            <td><button class="cbs-button" {{action "updateLocation" location}}>DEACTIVATE</button></td>
+          
+          </tr>
+            {{/unless}}
+        {{/if}}
+
+    {{else}}
+       {{#unless location.isActive}}
+          <tr>
+          <td>{{location.locationName}}</td>
+
+          <td><button  class="cbs-button" {{action "updateLocation" location}}>ACTIVATE</button></td>
+
+          </tr>
+        {{/unless}}
+    {{/if}}
+   
+    {{/each}}
+  </tbody>
+
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="mL100">
+  {{#unless showCreateLocations}}
+  <button  class="cbs-button primary-btn" {{action "toggleCreateLocation"}}>ADD LOCATION</button>
+  {{/unless}}
+<br><br><br>
+{{#if locationNullMessage}}
+  <div class="cbs-error-message">{{locationNullMessage}}</div>
+{{/if}}                      
+
+{{#if nameError}}
+             <div class="cbs-error-message">{{nameError}}</div>
+{{/if}} <br><br>
+{{#if showCreateLocations }}
+      {{!-- <form {{action "createLocation" on="submit"}}>
+      <label>
+      Location Name:
+      {{input value=locationName}}
+      </label>
+      <button class="cbs-button primary-btn" type="submit">CREATE</button>
+
+      </form> --}}
+					<div class="cbs-field-section">
+						<div class="cbs-field-group">
+							<label class="cbs-mandatory">Location Name</label>
+							<div class="cbs-fields">
+								      {{input value=locationName class="cbs-text-field"}}
+							</div>
+						</div>
+
+					</div>
+					
+
+						<button  class="cbs-button primary-btn"  {{action "createLocation" }}> CREATE </button>
+						<button class="cbs-button" {{action "toggleCreateLocation"}} > CANCEL </button>
+
+
+		
+
+{{/if}}
+
+
+</div>
+
+
+
+</div>
+
+
+
+ 

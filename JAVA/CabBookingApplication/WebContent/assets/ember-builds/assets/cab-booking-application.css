@@ -1,0 +1,364 @@
+@font-face {
+  font-family: 'Zoho Puvi';
+  src: url("/fonts/zoho-puvi.ttf") format("truetype"); }
+
+.cbs-bg {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background: url("https://static.zohocdn.com/iam/v2/components/images/bg.49756b7c711696d95133fa95451f8e13.svg");
+  background-size: auto;
+  background-size: auto 100%;
+  z-index: -1;
+  font-family: 'ZohoPuvi', sans-serif;
+  font-weight: 400;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center; }
+  .cbs-bg .cbs-nav-bar {
+    height: 70px;
+    position: fixed;
+    width: 260px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 1px; }
+    .cbs-bg .cbs-nav-bar .cbs-title-bar {
+      color: white;
+      font-size: 30px;
+      display: flex;
+      align-items: center; }
+  .cbs-bg .cbs-main-body {
+    margin-top: 50px;
+    margin-left: 260px; }
+    .cbs-bg .cbs-main-body .cbs-sub-body {
+      position: relative;
+      padding: 70px 140px; }
+      .cbs-bg .cbs-main-body .cbs-sub-body.sec {
+        padding: 20px 250px; }
+      .cbs-bg .cbs-main-body .cbs-sub-body.third {
+        padding: 0px 50px; }
+      .cbs-bg .cbs-main-body .cbs-sub-body .button_plus {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background: #fff;
+        cursor: pointer;
+        border: 2px solid #EA4A69;
+        top: 50%;
+        left: 50%; }
+        .cbs-bg .cbs-main-body .cbs-sub-body .button_plus:after {
+          content: '';
+          position: absolute;
+          transform: translate(-50%, -50%);
+          height: 4px;
+          width: 50%;
+          background: #EA4A69;
+          top: 50%;
+          left: 50%; }
+        .cbs-bg .cbs-main-body .cbs-sub-body .button_plus:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #EA4A69;
+          height: 50%;
+          width: 4px; }
+        .cbs-bg .cbs-main-body .cbs-sub-body .button_plus:hover {
+          background-color: #EA4A69;
+          transition: 0.2s; }
+          .cbs-bg .cbs-main-body .cbs-sub-body .button_plus:hover:before {
+            background: #fff;
+            transition: 0.2s; }
+          .cbs-bg .cbs-main-body .cbs-sub-body .button_plus:hover:after {
+            background: #fff;
+            transition: 0.2s; }
+      .cbs-bg .cbs-main-body .cbs-sub-body .cbs-notify-img {
+        justify-content: center; }
+        .cbs-bg .cbs-main-body .cbs-sub-body .cbs-notify-img img {
+          height: 500px;
+          width: 500px;
+          padding: 50px 100px 10px 200px; }
+      .cbs-bg .cbs-main-body .cbs-sub-body .cbs-field-section {
+        margin-bottom: 30px; }
+        .cbs-bg .cbs-main-body .cbs-sub-body .cbs-field-section .cbs-field-group {
+          width: 320px; }
+          .cbs-bg .cbs-main-body .cbs-sub-body .cbs-field-section .cbs-field-group.sec-width {
+            width: auto;
+            margin-right: 40px; }
+          .cbs-bg .cbs-main-body .cbs-sub-body .cbs-field-section .cbs-field-group .cbs-mandatory {
+            margin-bottom: 5px; }
+          .cbs-bg .cbs-main-body .cbs-sub-body .cbs-field-section .cbs-field-group .cbs-fields {
+            position: relative;
+            line-height: normal; }
+            .cbs-bg .cbs-main-body .cbs-sub-body .cbs-field-section .cbs-field-group .cbs-fields .cbs-text-field {
+              font-size: 14px;
+              border: transparent;
+              border-bottom-color: transparent;
+              border-bottom-style: none;
+              border-bottom-width: medium;
+              border-bottom: 1px solid #AAA;
+              border-radius: 0;
+              padding: 15px 0;
+              width: 100%;
+              outline: 0;
+              background-color: transparent; }
+    .cbs-bg .cbs-main-body .cbs-scrollable-div {
+      max-height: 650px;
+      width: auto;
+      overflow-y: auto;
+      margin: 25px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); }
+      .cbs-bg .cbs-main-body .cbs-scrollable-div.mT25 {
+        margin-top: 1px; }
+      .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table {
+        border-collapse: collapse;
+        border-radius: 5px;
+        font-size: 1em;
+        min-width: 400px;
+        flex-shrink: 0;
+        overflow: hidden; }
+        .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table thead {
+          position: sticky;
+          top: 0;
+          z-index: 5; }
+          .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table thead tr {
+            background: linear-gradient(to right, #2a4564 10%, #141e30 100%);
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold; }
+        .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table tbody {
+          z-index: 4;
+          max-height: 500px;
+          overflow-y: auto; }
+          .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3; }
+          .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            opacity: 1; }
+      .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table th,
+      .cbs-bg .cbs-main-body .cbs-scrollable-div .content-table td {
+        padding: 12px 15px; }
+    .cbs-bg .cbs-main-body .cbs-button {
+      border-radius: 3px;
+      color: #333;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      padding: 6px 20px;
+      background: #f8f8f8;
+      border: 1px solid #AAA;
+      box-shadow: 1px 1.73px 2px 0 rgba(170, 170, 170, 0.35); }
+      .cbs-bg .cbs-main-body .cbs-button.primary-btn {
+        color: #FFF;
+        background: linear-gradient(to bottom, #F95978 0, #EA4A69 100%);
+        border: 1px solid #EA4A69; }
+        .cbs-bg .cbs-main-body .cbs-button.primary-btn:hover {
+          background-color: #0f0f0f;
+          opacity: 10;
+          box-shadow: 2px 2px 3px 0 rgba(170, 170, 170, 0.35); }
+      .cbs-bg .cbs-main-body .cbs-button:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        opacity: 1; }
+  .cbs-bg .cbs-nave-pane {
+    width: 260px;
+    height: 100%;
+    float: left;
+    z-index: 1;
+    position: fixed;
+    transition: width .1s linear;
+    background: linear-gradient(to bottom, #2A4564, #141E30 100%); }
+    .cbs-bg .cbs-nave-pane a {
+      text-decoration: none; }
+      .cbs-bg .cbs-nave-pane a .pane-options {
+        padding: 20px 50px;
+        font-size: 18px;
+        color: #dfdfdf;
+        display: block;
+        transition: 0.4s ease;
+        animation: fadeIn 3s;
+        cursor: pointer; }
+        .cbs-bg .cbs-nave-pane a .pane-options.active {
+          background-color: rgba(0, 0, 0, 0.4);
+          color: #FFF;
+          opacity: 1;
+          font-size: 20px; }
+        .cbs-bg .cbs-nave-pane a .pane-options:focus-within {
+          background-color: rgba(0, 0, 0, 0.4);
+          color: #FFF;
+          opacity: 1; }
+    .cbs-bg .cbs-nave-pane .pane-options:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+      opacity: 1; }
+  .cbs-bg .zoho-logo {
+    background: url("https://static.zohocdn.com/iam/v2/components/images/newZoho_logo.5f6895fcb293501287eccaf0007b39a5.svg") no-repeat transparent;
+    background-size: auto 100%;
+    height: 40px;
+    width: 100px;
+    float: right; }
+    .cbs-bg .zoho-logo.left {
+      float: none;
+      margin-left: 30px;
+      height: 50px;
+      width: 120px;
+      background: url("https://www.zohowebstatic.com/sites/default/files/zoho_general_pages/zoho-logo-white.png") no-repeat transparent;
+      background-size: auto 100%;
+      margin-right: 5px; }
+  .cbs-bg .cbs-auth-container {
+    align-items: center; }
+    .cbs-bg .cbs-auth-container .cbs-auth-card {
+      display: block;
+      width: 500px;
+      min-height: 520px;
+      background-color: #fff;
+      box-shadow: 0px 2px 30px #ccc6;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+      margin-top: 7%;
+      overflow: hidden; }
+      .cbs-bg .cbs-auth-container .cbs-auth-card.half {
+        margin-top: 3%; }
+      .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box {
+        width: 100%;
+        min-height: 520px;
+        height: auto;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 50px 50px;
+        border-radius: 2px;
+        transition: all .1s ease-in-out;
+        float: left;
+        overflow-y: auto; }
+        .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .head {
+          display: inline;
+          margin-bottom: 30px; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .head .signin_head {
+            display: block;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 30px;
+            transition: all .1s ease-in-out; }
+            .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .head .signin_head .service_name {
+              display: block;
+              font-size: 16px;
+              color: #000;
+              font-weight: 400;
+              line-height: 28px; }
+        .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group {
+          position: relative;
+          margin: 35px 0; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group.half {
+            margin: 0px 0;
+            width: 100%; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .cbs-field-label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #BFBFBF;
+            padding: 0 5px;
+            pointer-events: none; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .cbs-field-input {
+            width: 97%;
+            height: 50px;
+            font-size: 16px;
+            color: #151414;
+            background: #fff;
+            border: 1.2px solid #E4E4E4;
+            outline: none;
+            border-radius: 2px;
+            margin-left: 3px;
+            text-indent: 5px; }
+            .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .cbs-field-input:focus {
+              border: 1.2px solid #159aff; }
+            .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .cbs-field-input:focus ~ .cbs-field-label {
+              top: 0;
+              background: #fff;
+              color: #159aff; }
+            .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .cbs-field-input:valid ~ .cbs-field-label {
+              top: 0;
+              background: #fff; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .btn {
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            height: 50px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            font-size: 16px;
+            font-weight: 600;
+            outline: none;
+            border: none;
+            margin: auto;
+            margin-bottom: 30px; }
+            .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .cbs-field-group .btn.blue {
+              box-shadow: 0px 2px 2px #fff;
+              background-color: #159aff;
+              color: #fff; }
+        .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .line {
+          background-color: #E4E4E4;
+          width: 100%;
+          height: 2px;
+          border-radius: 1px;
+          margin-bottom: 20px;
+          position: relative; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .line .line_con {
+            position: absolute;
+            top: -8px;
+            text-align: center;
+            width: 100%;
+            margin: auto; }
+        .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .signup_link {
+          width: 100%;
+          display: inline-block;
+          margin: 10px;
+          text-align: center;
+          line-height: 20px;
+          font-weight: 400;
+          font-size: 16px;
+          color: #555; }
+          .cbs-bg .cbs-auth-container .cbs-auth-card .cbs-auth-box .signup_link a {
+            text-decoration: none;
+            color: #159aff; }
+  .cbs-bg .dFlex {
+    display: flex; }
+  .cbs-bg .dInBlck {
+    display: inline-block; }
+  .cbs-bg .mR10 {
+    margin-right: 10px; }
+  .cbs-bg .mL10 {
+    margin-left: 10px; }
+  .cbs-bg .mT100 {
+    margin-top: 100px; }
+  .cbs-bg .mL100 {
+    margin-left: 100px; }
+  .cbs-bg .cbs-error-message {
+    color: #bd3939;
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-left: 5px;
+    margin-bottom: -5px; }
+  .cbs-bg .shrink {
+    flex-shrink: 0; }
+  .cbs-bg .overflow {
+    max-height: 400px;
+    overflow-y: auto; }
+  .cbs-bg .mT5 {
+    margin-top: 8px; }
+  .cbs-bg .mLP65 {
+    margin-left: 65%; }
+  .cbs-bg .mLP80 {
+    margin-left: 80%; }
+  .cbs-bg .mR20 {
+    margin-right: 20px; }
+
+/*# sourceMappingURL=cab-booking-application.css.map */

@@ -1,0 +1,137 @@
+<div class="cbs-sub-body dFlex">
+
+<div>
+         <button  class="cbs-button primary-btn mLP65" {{action "toggleCreateRoute"}}>ADD ROUTE</button>
+
+        <div class="cbs-scrollable-div">
+
+
+        <table class="content-table">
+            <thead>
+            <tr>
+                <th>ROUTE NAME</th>
+                 <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#each model as |route|}}
+            <tr>
+                <td>{{route.routeName}}</td>
+                <td><button class="cbs-button" {{action "getStops" route}}>VIEW STOPS</button></td>
+            </tr>
+            {{/each}}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="mL100">
+{{#if routeNullMessage}}
+    <div class="cbs-error-message">{{routeNullMessage}}</div>
+{{/if}}
+
+{{#if nameError}}
+    <div class="cbs-error-message">{{nameError}}</div>
+{{/if}}
+    
+<br>
+<br>
+{{#if showCreateRoute }}
+    <div class="cbs-field-section">
+        <div class="cbs-field-group">
+            <label class="cbs-mandatory">Route Name</label>
+        <div class="cbs-fields">
+            {{input value=routeName class="cbs-text-field" }}
+        </div>
+
+        </div>
+            
+    </div>
+
+
+
+    <div class="cbs-field-section">
+            <div class="cbs-field-group">
+                <label class="cbs-mandatory"><b>Select Branch :</b></label>
+                    <div class="cbs-fields overflow">
+          
+                        {{#each locations as |location|}}
+                        {{#if location.isBranch }}
+                            <ul>
+                                <li>   
+                                <input type="checkbox" value={{location.locationId}} name="branches">
+                                {{location.locationName}}
+                                </li>
+                            </ul>
+                        {{/if}}
+                        {{/each}}
+
+                    </div>
+            </div>
+            <div class="cbs-field-group">
+                <label class="cbs-mandatory"><b>Select Locations :</b></label>
+                    <div class="cbs-fields overflow">
+          
+                        {{#each locations as |location|}}
+                        {{#unless location.isBranch }}
+                            <ul>
+                                <li>   
+                                <input type="checkbox" value={{location.locationId}} name="locations">
+                                {{location.locationName}}
+                                </li>
+                            </ul>
+                        {{/unless}}
+                        {{/each}}
+
+                    </div>
+            </div>
+    </div>
+
+
+    <button  class="cbs-button primary-btn mR20" {{action "createRoute"}}> CREATE </button>
+    <button class="cbs-button" {{action "toggleAll"}} > CANCEL </button>
+
+    {{/if}}
+
+    {{#if showStopList}}
+
+
+    <button  class="cbs-button" {{action "toggleAll"}}>CLOSE</button>
+
+        <div class="cbs-scrollable-div">
+
+
+        <table class="content-table">
+            <thead>
+            <tr>
+                <th>STOPS</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#each locationList as |stops|}}
+            <tr>
+                <td>{{stops.locationName}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+
+        </table>
+
+    </div>
+    
+
+    {{/if}}
+
+</div>
+
+</div>
+
+
+ 
+

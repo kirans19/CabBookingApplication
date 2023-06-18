@@ -1,0 +1,102 @@
+<div class="cbs-sub-body">
+
+    <div>
+            <div class="cbs-field-section dFlex">
+            <div class="cbs-field-group sec-width dInBlck">
+                <label class="cbs-mandatory">Choose Slot</label>
+                <br>
+                    <div class="cbs-fields">
+
+                        <select class="cbs-button mT5">
+                            {{#each dropDownTimeRanges as |timeRange|}}
+                                <option value={{timeRange.value}} {{action "getBookingTime" timeRange}}>{{timeRange.time}}</option>
+                            {{/each}}
+                        </select>
+                        <br>
+                    </div>
+            </div>
+            <div class="cbs-field-group sec-width dInBlck">
+                <label class="cbs-mandatory">Select Spot</label>
+                <br><br>
+                    <div class="cbs-fields">
+                        {{!-- <button class="cbs-button mT5" {{action 'getIsPickUp' 'true'}}> HOME</button>
+                        <button class="cbs-button mT5" {{action 'getIsPickUp' 'false'}}> OFFICE</button> --}}
+                        <input type="radio" class="custom-radio" value="true" name="pickup">
+                        <label>Home</label>
+                        <input type="radio" class="custom-radio"  value="false" name="pickup">
+                        <label>Office</label>
+
+                    </div>
+            </div>
+       
+
+        <div class="cbs-field-section sec-width">
+            <div class="cbs-field-group sec-width">
+                <label class="cbs-mandatory">&nbsp;</label>
+                <div class="cbs-fields">
+                    <button class="cbs-button primary-btn mT5" {{action "doBooking"}}>BOOK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="cbs-error-message">{{invalidBookingMessage}}</div>
+    </div>
+
+    {{#if model}}
+
+    <h3>Bookings</h3>
+    <div class="cbs-scrollable-div mT25 dInBlck">
+
+        <table class="content-table">
+
+        <thead>
+            <tr>
+            <th>TRIP ID</th>
+            <th>DRIVER ID</th>
+            <th>DRIVER NAME</th>
+            <th>BOOKED TIME</th>
+            <th>MOBILE NUM</th>
+            <th></th>
+            </tr>
+        </thead>
+
+        {{#each model as |booking|}}
+
+        <tbody>
+            <tr>
+            <td>{{booking.tripId}}</td>
+            <td>{{booking.driverId}}</td>
+            <td>{{booking.name}}</td>
+            <td>{{booking.bookedTime}}</td>
+            <td>{{booking.phnNum}}</td>
+            <td><button class="cbs-button" {{action "cancelBooking" booking}}>CANCEL</button></td>
+            </tr>
+        </tbody>
+
+        {{/each}}
+
+        </table>
+
+    </div>
+
+    {{/if}}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <label>Home</label>
+  <input type="radio"  name="isPickup"  {{action "getValue" "true"}} {{checked "isHome"}}>
+  <label>Branch</label>
+  <input type="radio"  name="isPickup"  {{action "getValue" "false"}} {{checked "isBranch"}}>  --}}

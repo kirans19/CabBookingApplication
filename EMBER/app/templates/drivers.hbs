@@ -1,0 +1,274 @@
+<div class="cbs-sub-body">
+ 
+
+            <select class="cbs-button mLP mLP65" >
+
+    {{!-- {{#unless showActivatedDrivers}} --}}
+        <option {{action "toggleActivatedDriverList"}}>ACTIVATED DRIVERS</option>
+    {{!-- {{/unless}} --}}
+    {{!-- {{#unless showDeactivatedDrivers}} --}}
+          <option class="cbs-button " {{action "toggleDeactivatedDriverList"}}>DEACTIVATED DRIVERS</option>
+    {{!-- {{/unless}} --}}
+    {{!-- {{#unless showUnApprovedDrivers }} --}}
+        <option class="cbs-button " {{action "toggleApproval"}}> APPROVE DRIVERS</option>
+    {{!-- {{/unless}} --}}
+  </select>
+    
+
+
+  
+    {{!-- {{#unless showActivatedDrivers}}
+        <button class="cbs-button" {{action "toggleActivatedDriverList"}}>ACTIVATED DRIVERS</button>
+    {{/unless}}
+    {{#unless showDeactivatedDrivers}}
+          <button class="cbs-button " {{action "toggleDeactivatedDriverList"}}>DEACTIVATED DRIVERS</button>
+    {{/unless}}
+    {{#unless showUnApprovedDrivers }}
+        <button class="cbs-button " {{action "toggleApproval"}}> APPROVE DRIVERS</button>
+    {{/unless}} --}}
+   
+   {{#if modelLength}}
+<div class="cbs-scrollable-div dInBlck">
+
+
+
+<table class="content-table">
+    <thead>
+    <tr>
+        <th>DRIVER ID</th>
+        <th>EMAIL</th>
+        <th>NAME</th>
+        <th>LOCATION</th>
+        <th>SHIFT</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+          {{#each model as |driver|}}
+
+          {{#if driver.canDisplay}}
+
+                <tr>
+                    <td>{{driver.driverId}}</td>
+                    <td>{{driver.email}}</td>
+                    <td>{{driver.name}}</td>
+
+                    {{#if showUnApprovedDrivers }}
+                    <td>
+                        <select class="cbs-button">
+                            {{#each locations as |location|}}
+                                {{#unless location.isBranch}}
+                                    <option value={{location.locationId}} {{action "addDriverLocation" location}}>{{location.locationName}}</option>
+                                {{/unless}}
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="cbs-button">
+                            <option {{action "addDriverShift" "0"}}>Morning</option>
+                            <option {{action "addDriverShift" "1"}}>Noon</option>
+                            <option {{action "addDriverShift" "2"}}>Evening</option>
+                            <option {{action "addDriverShift" "3"}}>Night</option>
+                        </select>
+                    </td>
+                    <td><button class="cbs-button primary-btn" {{action "updateDriverFields" driver}}>APPROVE</button></td>
+                    {{/if}}
+
+                    {{#if showActivatedDrivers }}
+                            {{#if driver.isEditable}}
+
+                                <td>
+                                <select class="cbs-button">
+                                    {{#each locations as |location|}}
+                                        {{#unless location.isBranch}}
+                                        <option value={{location.locationId}} {{action "addDriverLocation" location}}>{{location.locationName}}</option>
+                                        {{/unless}}
+                                    {{/each}}
+                                </select>
+                                </td>
+
+                                 <td>
+                                    <select  class="cbs-button">
+                                    <option {{action "addDriverShift" "0"}}>Morning</option>
+                                    <option {{action "addDriverShift" "1"}}>Noon</option>
+                                    <option {{action "addDriverShift" "2"}}>Evening</option>
+                                    <option {{action "addDriverShift" "3"}}>Night</option>
+                                </select>
+                                </td>
+
+                                <td> 
+                                 <button class="cbs-button primary-btn" {{action "updateDriverFields" driver}}>SUBMIT</button>
+                                <button class="cbs-button" {{action "toggleUpdateFields"}}>CANCEL</button>
+                                </td>
+
+                            {{else}}
+
+                                <td>{{driver.locationName}}</td>
+                                <td>{{shiftlabel driver.shift}}</td>
+                                
+                                <td>
+                               
+                                <button class="cbs-button" {{action "updateDriverStatus" driver}}>DEACTIVATE</button>
+                                <button class="cbs-button" {{action "toggleUpdateFields" driver.driverId}}>EDIT</button>
+    
+                                </td>
+
+                    
+                            {{/if}}
+                     
+                    {{/if}}
+
+                    {{#if showDeactivatedDrivers}}
+                        <td>{{driver.locationName}}</td>
+                        <td>{{shiftlabel driver.shift}}</td>
+                        <td><button class="cbs-button" {{action "updateDriverStatus" driver}}>ACTIVATE</button></td>
+                    {{/if}}
+                </tr>
+
+                {{/if}}
+          {{/each}}
+
+    
+
+
+
+
+
+
+
+
+    </tbody>
+
+   </table>
+
+   </div>
+
+{{else}}
+
+<div class="cbs-notify-img">
+
+ <img src="/CabBookingApplication/assets/ember-builds/assets/images/nodata.png">  
+
+ </div>
+
+{{/if}}
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+{{!-- 
+         {{#each model as |driver|}}
+
+        {{#if showUnApprovedDrivers }}
+            {{#unless driver.locationId}}
+                <tr>
+                    <td>{{driver.driverId}}</td>
+                    <td>{{driver.email}}</td>
+                    <td>{{driver.name}}</td>
+                    <td>
+                        <select class="cbs-button">
+                            {{#each locations as |location|}}
+                                {{#unless location.isBranch}}
+                                    <option value={{location.locationId}} {{action "addDriverLocation" location}}>{{location.locationName}}</option>
+                                {{/unless}}
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="cbs-button">
+                            <option {{action "addDriverShift" "0"}}>Morning</option>
+                            <option {{action "addDriverShift" "1"}}>Noon</option>
+                            <option {{action "addDriverShift" "2"}}>Evening</option>
+                            <option {{action "addDriverShift" "3"}}>Night</option>
+                        </select>
+                    </td>
+                    <td><button class="cbs-button primary-btn" {{action "updateDriverFields" driver}}>APPROVE</button></td>
+                </tr>
+            {{/unless}}
+        {{/if}}
+
+        {{#if showActivatedDrivers }}
+             {{#if driver.locationId}}
+                    {{#if driver.isActive }}
+                        <tr>
+                            <td>{{driver.driverId}}</td>
+                            <td>{{driver.email}}</td>
+                            <td>{{driver.name}}</td>
+                            {{#if driver.isEditable}}
+
+                                <td>
+                                <select class="cbs-button">
+                                    {{#each locations as |location|}}
+                                        {{#unless location.isBranch}}
+                                        <option value={{location.locationId}} {{action "addDriverLocation" location}}>{{location.locationName}}</option>
+                                        {{/unless}}
+                                    {{/each}}
+                                </select>
+                                </td>
+
+                                 <td >
+                                    <select class="cbs-button">
+                                    <option {{action "addDriverShift" "0"}}>Morning</option>
+                                    <option {{action "addDriverShift" "1"}}>Noon</option>
+                                    <option {{action "addDriverShift" "2"}}>Evening</option>
+                                    <option {{action "addDriverShift" "3"}}>Night</option>
+                                </select>
+                                </td>
+
+                                <td> 
+                                 <button class="cbs-button primary-btn" {{action "updateDriverFields" driver}}>SUBMIT</button>
+                                <button class="cbs-button" {{action "toggleUpdateFields"}}>CANCEL</button>
+                                </td>
+
+                            {{else}}
+
+                                <td>{{driver.locationName}}</td>
+                                <td>{{driver.shift}}</td>
+                                
+                                <td>
+                               
+                                <button class="cbs-button" {{action "updateDriverStatus" driver}}>DEACTIVATE</button>
+                                <button class="cbs-button" {{action "toggleUpdateFields" driver.driverId}}>EDIT</button>
+    
+                                </td>
+
+                    
+                            {{/if}}
+                     
+
+                        </tr>
+                    {{/if}}
+            {{/if}}
+        {{/if}}
+
+        {{#if showDeactivatedDrivers }}
+            {{#if driver.locationId}}
+
+                {{#unless driver.isActive}}
+                    <tr>
+                        <td>{{driver.driverId}}</td>
+                        <td>{{driver.email}}</td>
+                        <td>{{driver.name}}</td>
+                        <td>{{driver.locationName}}</td>
+                        <td>{{driver.shift}}</td>
+                        <td><button class="cbs-button" {{action "updateDriverStatus" driver}}>ACTIVATE</button></td>
+                    </tr>
+                {{/unless}}
+            {{/if}}
+        {{/if}}
+
+
+
+    {{/each}} --}}

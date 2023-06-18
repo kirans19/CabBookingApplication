@@ -1,0 +1,29 @@
+<div class="cbs-nav-bar">
+        <div class="zoho-logo left"></div>
+        <div class="cbs-title-bar">
+            Cabs
+        </div>
+</div>
+
+<div class="cbs-nave-pane">
+
+    {{#if isAdmin}}
+        {{#link-to "history"}}<div {{action "selectPaneOption" "paneOption_1"}} class="pane-options {{if paneOption_1 "active"}} mT100">Report</div>{{/link-to}}
+        {{#link-to "drivers"}}<div {{action "selectPaneOption" "paneOption_2"}}  class="pane-options {{if paneOption_2 "active"}}">Drivers</div>{{/link-to}}
+        {{#link-to "routes"}}<div {{action "selectPaneOption" "paneOption_3"}} class="pane-options {{if paneOption_3 "active"}}">Routes </div>{{/link-to}}
+        {{#link-to "locations"}}<div  {{action "selectPaneOption" "paneOption_4"}} class="pane-options {{if paneOption_4 "active"}}">Locations</div>{{/link-to}}
+    {{/if}}
+
+    {{#if isUser}}
+        {{#link-to "bookings"}}<div {{action "selectPaneOption" "paneOption_1"}} class="pane-options {{if paneOption_1 "active"}} mT100">Bookings</div>{{/link-to}}
+        {{#link-to "history"}}<div {{action "selectPaneOption" "paneOption_2"}} class="pane-options {{if paneOption_2 "active"}}">History</div>{{/link-to}}
+    {{/if}}
+
+    {{#if isDriver}}
+        {{#link-to "trips"}}<div {{action "selectPaneOption" "paneOption_1"}} class="pane-options  {{if paneOption_1 "active"}} mT100">My Trips</div>{{/link-to}}
+        {{#link-to "history"}}<div {{action "selectPaneOption" "paneOption_2"}} class="pane-options {{if paneOption_2 "active"}}">History</div>{{/link-to}}
+    {{/if}}
+
+     <a><div class="pane-options" {{action "logout"}}>Logout</div></a>
+</div>
+

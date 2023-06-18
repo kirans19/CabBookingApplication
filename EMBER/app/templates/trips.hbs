@@ -1,0 +1,103 @@
+<div class="cbs-sub-body">
+
+{{#if showAllTrips}}
+
+{{#if model}}
+<div class="cbs-scrollable-div dInBlck">
+
+<table class="content-table">
+    <thead>
+        <tr>
+            <th>TRIP ID</th>
+            <th>TRIP SLOT</th>
+            <th>STOP</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {{#each model as |trip|}}
+        <tr>
+            <td>{{trip.tripId}}</td>
+            <td>{{trip.bookedTime}}</td>
+            {{#if trip.isPickup}}
+            <td>Home</td>
+            {{else}}
+            <td>Office</td>
+            {{/if}}
+            <td><button class="cbs-button" {{action "getCurrTrip" trip}}>VIEW</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
+{{else}}
+<div class="cbs-notify-img">
+
+ <img src="/CabBookingApplication/assets/ember-builds/assets/images/nodata.png">  
+
+ </div>
+{{/if}}
+     
+{{else}}
+ <button class="cbs-button primary-btn mLP80" {{action "toggleAllTrips"}}>BACK</button>
+
+ {{#if currTrip}}
+<div class="cbs-scrollable-div dInBlck">
+   
+<table class="content-table">
+    <thead>
+        <tr>
+            <th>USER ID</th>
+            <th>USER NAME</th>
+            <th>BOOKED TIME</th>
+            <th>PICKUP LOCATION</th>
+            <th>DROP LOCATION</th>
+            <th>STATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {{#each currTrip as |trip|}}
+        <tr>
+            <td>{{trip.userId}}</td>
+            <td>{{trip.name}}</td>
+            <td>{{trip.bookedTime}}</td>
+            <td>{{trip.pickupLocation}}</td>
+            <td>{{trip.dropLocation}}</td>
+
+            {{#if (equals trip.status "1")}}
+                <td>
+                    <button class="cbs-button" {{action "updateTripStatus" trip.userId "2"}}>BEGIN</button>
+                    <button class="cbs-button" {{action "updateTripStatus" trip.userId "4"}}>ABSENT</button>
+                </td>
+            {{/if}}
+            {{#if (equals trip.status "2")}}
+                <td>
+                    <button class="cbs-button" {{action "updateTripStatus" trip.userId "3"}}>DROP</button>
+                </td>
+            {{/if}}
+            {{#if (equals trip.status "3")}}
+                <td>TRIP ENDED</td>
+            {{/if}}
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+</div>
+{{else}}
+
+<div class="cbs-notify-img">
+
+ <img src="/CabBookingApplication/assets/ember-builds/assets/images/nodata.png">  
+
+ </div>
+
+{{/if}}
+
+{{/if}}
+
+</div>

@@ -1,0 +1,57 @@
+
+<div class="cbs-bg">
+    <div class="cbs-auth-container">
+        <div class="cbs-auth-card">
+            <div class="cbs-auth-box">
+                <div class="head">
+                    
+                    <div class="zoho-logo">
+                    </div>
+                    <div class="signin_head">
+                        <span >Sign in</span>
+                        <div class="service_name">to access <span>ZCabs</span></div>
+                    </div>
+                </div>
+
+                <div class="cbs-field-group">
+                    {{input type="text" value=email class="cbs-field-input" required="true"}}
+                    <label class="cbs-field-label" >Email</label>
+                </div>
+
+                {{#if emailNullMessage}}
+                    <div class="cbs-error-message">{{emailNullMessage}}</div>
+                {{/if}}
+
+                {{#if emailError}}
+                    <div class="cbs-error-message" >{{emailError}}</div>
+                {{/if}}
+
+                <div class="cbs-field-group">
+                    {{input type="password" value=password class="cbs-field-input" required="true"}}
+                      <label class="cbs-field-label">Password</label>
+                </div>
+
+                {{#if passwordNullMessage}}
+                    <div class="cbs-error-message">{{passwordNullMessage}}</div>
+                {{/if}}
+
+                <div class="cbs-field-group">
+                    <button class="btn blue" {{action "authenticate"}}>LOGIN</button>
+                     {{#if invalidLoginMessage}}
+                    <div class="cbs-error-message">{{ invalidLoginMessage}}</div>
+                    {{/if}}
+                </div>
+               
+                <div class="line">
+		    			<span class="line_con"></span>
+	    		</div>
+                <div class="signup_link">Don't have a Zoho account?  {{#link-to "register"}}<a>Sign Up Now</a>{{/link-to}}</div>
+            </div>
+                      
+        </div>
+    </div>
+
+</div>
+    
+			    				
+								

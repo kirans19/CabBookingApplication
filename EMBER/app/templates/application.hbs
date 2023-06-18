@@ -1,0 +1,13 @@
+{{#if token}}
+  <div class="cbs-bg">
+    {{nav-pane logoutAction='doLogout'}}
+    <div class="cbs-main-body"> 
+        {{outlet}}
+    </div>
+  </div>
+{{else}}
+    {{outlet}}
+{{/if}}
+
+
+{{!-- {{outlet}} --}}

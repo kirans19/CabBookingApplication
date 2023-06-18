@@ -1,0 +1,124 @@
+
+<div class="cbs-bg">
+    <div class="cbs-auth-container">
+        <div class="cbs-auth-card half">
+            <div class="cbs-auth-box">
+              <div class="head">
+                    
+                    <div class="zoho-logo">
+                    </div>
+                <div class="signin_head">
+                    <span >Create New Account</span>
+				        </div>
+                </div>
+                <div class="cbs-field-group">
+                    {{input type="email" value=email class="cbs-field-input" required="true"}}
+                    <label class="cbs-field-label" >Email</label>
+                </div>
+                {{#if emailNullMessage}}
+                    <div class="cbs-error-message">{{emailNullMessage}}</div>
+                {{/if}}
+                {{#if emailError}}
+                    <div class="cbs-error-message" >{{emailError}}</div>
+                {{/if}}
+
+                <div class="cbs-field-group">
+                    {{input type="password" value=password class="cbs-field-input" required="true"}}
+                      <label class="cbs-field-label">Password</label>
+                </div>
+                {{#if passwordNullMessage}}
+                    <div class="cbs-error-message">{{passwordNullMessage}}</div>
+                {{/if}}
+                
+                <div class="cbs-field-group">
+                    {{input type="text" value=name class="cbs-field-input" required="true"}}
+                    <label class="cbs-field-label" >Name</label>
+                </div>
+                {{#if nameNullMessage}}
+                    <div class="cbs-error-message">{{nameNullMessage}}</div>
+                {{/if}}
+                {{#if nameError}}
+                    <div class="cbs-error-message" >{{nameError}}</div>
+                {{/if}}
+
+                <div class="cbs-field-group">
+                    {{input type="tel" value=phnNum class="cbs-field-input" required="true"}}
+                    <label class="cbs-field-label" >Mobile Number</label>
+                </div>
+                 {{#if phnNumNullMessage}}
+                    <div class="cbs-error-message">{{phnNumNullMessage}}</div>
+                {{/if}}
+                {{#if phnNumError}}
+                    <div class="cbs-error-message" >{{phnNumError}}</div>
+                {{/if}}
+
+                {{#if showTypeFields}}
+                <div class="cbs-field-group">
+                  <select class="cbs-field-input">
+                    <option {{action "getUserType" "1"}}>User</option>
+                    <option {{action "getUserType" "2"}}>Driver</option>
+                  </select>
+                    
+                    <label class="cbs-field-label" >User Type</label>
+                </div>
+                {{/if}}
+                {{#if userTypeNullMessage}}
+                    <div class="cbs-error-message">{{userTypeNullMessage}}</div>
+                {{/if}}
+
+
+                {{#if showLocationFields}}
+          
+                <div class="cbs-field-group dFlex">
+                  <div class="cbs-field-group half">
+                    <div class="mR10">
+
+                      <select class="cbs-field-input">
+
+                      {{#each model as |location|}}
+                      {{#if location.isBranch}}
+                      <option class="cbs-field-input" value={{location.locationId}} {{action "addBranch" location.locationId}}>{{location.locationName}}</option>
+                      {{/if}}
+                      {{/each}}
+
+                      </select>
+                      
+                      <label class="cbs-field-label" >Branch</label>
+                    </div>
+                  </div>
+
+                  <div class="cbs-field-group half">
+                   <select class="cbs-field-input">
+                    {{#each model as |location|}}
+                      {{#unless location.isBranch}}
+                      <option class="cbs-field-input" value={{location.locationId}} {{action "addHome" location.locationId}} >{{location.locationName}}</option>
+                      {{/unless}}
+                    {{/each}}
+                    </select>
+                    <label class="cbs-field-label" >Home</label>
+                  </div>
+                </div>
+                    {{#if branchNullMessage}}
+                        <div class="cbs-error-message">{{branchNullMessage}}</div>
+                    {{/if}}
+                    {{#if homeNullMessage}}
+                        <div class="cbs-error-message">{{homeNullMessage}}</div>
+                    {{/if}}
+                {{/if}}
+
+                <div class="cbs-field-group">
+                    <button class="btn blue" {{action "register"}}>REGISTER</button>
+                            {{#if invalidRegisterMessage}}
+                    <div class="cbs-error-message">{{ invalidRegisterMessage}}</div>
+                    {{/if}}
+                </div>
+                <div class="line">
+		    			  <span class="line_con"></span>
+	    		      </div>
+                <div class="signup_link">Already Having an account? {{#link-to "login"}}<a>Sign In</a>{{/link-to}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
